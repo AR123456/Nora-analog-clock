@@ -38,7 +38,7 @@ function updateBackground() {
     hello.innerText = "Have a good day Nora !";
   } else {
     bstyle.backgroundColor = "pink";
-    bstyle.color = "white";
+    bstyle.color = "black";
     hello.innerText = "Not time yet";
   }
 }
