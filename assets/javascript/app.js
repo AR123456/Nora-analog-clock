@@ -27,19 +27,23 @@ function updateBackground() {
   var hr = new Date().getHours(),
     body = document.body,
     bstyle = body.style,
-    hello = document.querySelector(".hello");
+    // hello = document.querySelector(".hello");
+    bed = document.querySelector(".bed");
   if (hr < 6) {
     bstyle.backgroundColor = "pink";
     bstyle.color = "black";
-    hello.innerText = "Not time yet";
+    // hello.innerText = "Not time yet";
+    $(".bed").show();
   } else if (hr < 20) {
-    bstyle.backgroundColor = "green";
+    bstyle.backgroundColor = "#90EE90";
     bstyle.color = "white";
-    hello.innerText = "Have a good day Nora !";
+    // hello.innerText = "Have a good day Nora !";
+    $(".bed").hide();
   } else {
     bstyle.backgroundColor = "pink";
     bstyle.color = "black";
-    hello.innerText = "Not time yet";
+    // hello.innerText = "Not time yet";
+    $(".bed").show();
   }
 }
 
