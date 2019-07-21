@@ -29,7 +29,7 @@ function updateBackground() {
     bstyle = body.style,
     // hello = document.querySelector(".hello");
     bed = document.querySelector(".bed");
-  if (hr < 6) {
+  if (hr < 5) {
     bstyle.backgroundColor = "pink";
     bstyle.color = "black";
     // hello.innerText = "Not time yet";
