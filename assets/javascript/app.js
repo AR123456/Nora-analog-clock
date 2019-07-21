@@ -29,16 +29,18 @@ function updateBackground() {
     bstyle = body.style,
     // hello = document.querySelector(".hello");
     bed = document.querySelector(".bed");
-  if (hr < 6) {
+  if (hr < 7) {
     bstyle.backgroundColor = "pink";
     bstyle.color = "black";
     // hello.innerText = "Not time yet";
     $(".bed").show();
+    $(".cat").hide();
   } else if (hr < 20) {
     bstyle.backgroundColor = "#90EE90";
     bstyle.color = "white";
     // hello.innerText = "Have a good day Nora !";
     $(".bed").hide();
+    $(".cat").show();
   } else {
     bstyle.backgroundColor = "pink";
     bstyle.color = "black";
