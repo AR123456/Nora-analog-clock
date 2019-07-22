@@ -38,6 +38,7 @@ function updateBackground() {
   } else if (hr < 20) {
     bstyle.backgroundColor = "#90EE90";
     bstyle.color = "white";
+
     // hello.innerText = "Have a good day Nora !";
     $(".bed").hide();
     $(".cat").show();
