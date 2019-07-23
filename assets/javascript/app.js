@@ -31,6 +31,7 @@ function updateBackground() {
     bed = document.querySelector(".bed");
   if (hr < 6) {
     bstyle.backgroundColor = "pink";
+
     bstyle.color = "black";
     // hello.innerText = "Not time yet";
     $(".bed").show();
@@ -44,9 +45,11 @@ function updateBackground() {
     $(".cat").show();
   } else {
     bstyle.backgroundColor = "pink";
+
     bstyle.color = "black";
     // hello.innerText = "Not time yet";
     $(".bed").show();
+    $(".cat").hide();
   }
 }
 
