@@ -30,7 +30,7 @@ function updateBackground() {
     // hello = document.querySelector(".hello");
     bed = document.querySelector(".bed");
   if (hr < 6) {
-    bstyle.backgroundColor = "pink";
+    bstyle.backgroundColor = "yellow";
 
     bstyle.color = "black";
     // hello.innerText = "Not time yet";
