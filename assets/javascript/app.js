@@ -37,14 +37,14 @@ function updateBackground() {
     $(".bed").show();
     $(".cat").hide();
   } else if (hr < 20) {
-    bstyle.backgroundColor = "#90EE90";
+    bstyle.backgroundColor = "green";
     bstyle.color = "white";
 
     // hello.innerText = "Have a good day Nora !";
     $(".bed").hide();
     $(".cat").show();
   } else {
-    bstyle.backgroundColor = "pink";
+    bstyle.backgroundColor = "yellow";
 
     bstyle.color = "black";
     // hello.innerText = "Not time yet";
