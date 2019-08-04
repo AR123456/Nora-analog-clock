@@ -36,7 +36,7 @@ function updateBackground() {
     // hello.innerText = "Not time yet";
     $(".bed").show();
     $(".cat").hide();
-  } else if (hr < 20) {
+  } else if (hr < 19) {
     bstyle.backgroundColor = "green";
     bstyle.color = "white";
 
