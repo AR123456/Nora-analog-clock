@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const errorHandler = require("./handlers/error");
 
 const PORT = 8081;
 
@@ -16,7 +17,8 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
+// this is the app . use for the incoming middle ware error handler
+app.use(errorHandler);
 // start the server
 app.listen(PORT, function() {
   console.log(`Server is starting on port ${PORT}`);
