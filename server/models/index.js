@@ -10,6 +10,10 @@ mongoose.Promise = Promise;
 // connect to the DB
 mongoose.connect("mongodb://localhost/warbler", {
   //keep the connection stable and avoid mongo warnings
-  keepAlive: true,
-  useMongoClient: true
+  keepAlive: true
+  // useMongoClient: true
 });
+
+// this is bundeling  - export out a property on what is send from index called user
+
+module.exports.User = require("./user");

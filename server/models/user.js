@@ -19,8 +19,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   profileImageUrl: {
     type: String
@@ -50,14 +49,14 @@ userSchema.pre("save", async function(next) {
 // creating a function to help the end user - an instace method, every document created from this model has this
 // takes in the password from the form
 userSchema.method.comparePassword = async function(candidatePassword, next) {
-  //handel error with try catch 
+  //handel error with try catch
   try {
-    // wait for compare to happen 
+    // wait for compare to happen
     let isMatch = await bcrypt.compare(candidatePassword, this.password);
     // tell routes if isMatch is true you have logged in succesfully
     return isMatch;
   } catch (err) {
-    // have not logged in succesfully 
+    // have not logged in succesfully
     return next(err);
   }
 };

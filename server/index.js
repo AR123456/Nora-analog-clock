@@ -1,8 +1,13 @@
+// required enviroment vars
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const errorHandler = require("./handlers/error");
+// useing the routes ( which use the handlers)
+const authRoutes = require("./routes/auth");
+const db = require("./models");
 
 const PORT = 8081;
 
@@ -10,6 +15,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 /// routes will go here
+// if there is ever any request that starts with /api/auth go and use the routes in routes/auth
+// have prefixed routes with /api/
+app.use("/api/auth", authRoutes);
 
 // this will handle 404 errors
 app.use(function(req, res, next) {
