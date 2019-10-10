@@ -47,8 +47,8 @@ userSchema.pre("save", async function(next) {
 });
 
 // creating a function to help the end user - an instace method, every document created from this model has this
-// takes in the password from the form
-userSchema.method.comparePassword = async function(candidatePassword, next) {
+// takes in the password from the form - hashes it and compares it to the hashed value in the db
+userSchema.methods.comparePassword = async function(candidatePassword, next) {
   //handel error with try catch
   try {
     // wait for compare to happen

@@ -31,3 +31,5 @@ app.use(errorHandler);
 app.listen(PORT, function() {
   console.log(`Server is starting on port ${PORT}`);
 });
+
+console.log("Trying to log the secret key   ", process.env.SECRET_KEY);
