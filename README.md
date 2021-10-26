@@ -1,1 +1,1 @@
-# React App based off of the twitter concept 
+# React App Expense Tracking App to show off some basic React concepts 
