@@ -1,29 +1,26 @@
+import React, { useState } from "react";
+
 // inject the css expenseitem css
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 import "./ExpenseItem.css";
 
 const ExpenseItem = (props) => {
+  // useState needs a default action and updating funciton - this is an array
+  // can use array destructuring for this
+  const [title, setTitle] = useState(props.title);
+
   const clickHandler = () => {
-    console.log("Clicked ");
+    setTitle("Updated");
   };
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date}></ExpenseDate>
       <div className="expense-item__description">
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
-      <button
-        // can be in line function like this or a function we have defined elseware
-        // onClick={() => {
-        //   console.log("clicked");
-        // }}
-        // not executing here clickHandler()  just pointing to it, no parens.
-        onClick={clickHandler}
-      >
-        Change title
-      </button>
+      <button onClick={clickHandler}>Change title</button>
     </Card>
   );
 };
