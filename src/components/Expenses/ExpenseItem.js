@@ -9,9 +9,12 @@ const ExpenseItem = (props) => {
   // useState needs a default action and updating funciton - this is an array
   // can use array destructuring for this
   const [title, setTitle] = useState(props.title);
+  console.log("ExpenseItem evaluated by React");
 
   const clickHandler = () => {
+    // call the state updating function
     setTitle("Updated");
+    console.log(title);
   };
   return (
     <Card className="expense-item">
