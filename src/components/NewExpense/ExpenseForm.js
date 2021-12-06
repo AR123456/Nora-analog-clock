@@ -2,58 +2,33 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-  // anohter way to do this is one state insead of 3 by passing in an object which is a group of the three states, managed as one thing
-  // this is less common "in the wild"
-  // const [enteredTitle, setEnteredTitle] = useState("");
-  // const [enteredAmount, setEnteredAmount] = useState("");
-  // const [enteredDate, setEnteredDate] = useState("");
-  //when doing it this way updates to state are done to all 3 vs one independently of the others
-  const [userInput, setUserInput] = useState({
-    enteredTitle: "",
-    enteredAmount: "",
-    enteredDate: "",
-  });
+  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredDate, setEnteredDate] = useState("");
+
   const titleChangeHandler = (event) => {
-    // when passing in a state object if only updating one piece of state still need to pass in the other things in state so that they are not lost.  Do this using the spread operator
-    // setEnteredTitle(event.target.value);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredTitle: event.target.value,
-    // });
-    // the better way to update state when dealing with an object like this is to pass a function into that function like this anonnomus arrow function it will recive the previous state snapshot and return the new updated state.
-    // react schedules updates to if you are scheduleing a bunch of updates at the same time could be depending on an outdated state snapsot if you do not use the approach below
-    setUserInput((prevState) => {
-      return { ...prevState, enteredTitle: event.target.value };
-    });
+    setEnteredTitle(event.target.value);
   };
   const amountChangeHandler = (event) => {
-    // when passing in a state object if only updating one piece of state still need to pass in the other things in state so that they are not lost.  Do this using the spread operator
-    // setEnteredAmount(event.target.value);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredAmount: event.target.value,
-    // });
-    // the better way to update state when dealing with an object like this is to pass a function into that function like this anonnomus arrow function it will recive the previous state snapshot and return the new updated state.
-    // react schedules updates to if you are scheduleing a bunch of updates at the same time could be depending on an outdated state snapsot if you do not use the approach below
-    setUserInput((prevState) => {
-      return { ...prevState, enteredAmount: event.target.value };
-    });
+    setEnteredAmount(event.target.value);
   };
   const dateChangeHandler = (event) => {
-    // when passing in a state object if only updating one piece of state still need to pass in the other things in state so that they are not lost.  Do this using the spread operator
-    // setEnteredDate(event.target.value);
-    // setUserInput({
-    //   ...userInput,
-    //   enteredDate: event.target.value,
-    // });
-    // the better way to update state when dealing with an object like this is to pass a function into that function like this anonnomus arrow function it will recive the previous state snapshot and return the new updated state.
-    // react schedules updates to if you are scheduleing a bunch of updates at the same time could be depending on an outdated state snapsot if you do not use the approach below
-    setUserInput((prevState) => {
-      return { ...prevState, enteredDate: event.target.value };
-    });
+    setEnteredDate(event.target.value);
+  };
+  const submitHandler = (event) => {
+    // what should happen when the user clicks submt on the form
+    // When submit is clicked the browser also reloads the page by default.  We want to do this ourselfs with JS. So first thing is to prevent the default form submision
+    event.preventDefault();
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+    console.log(expenseData);
   };
   return (
-    <form>
+    // listening for on form submit to listen for submit button click. Pass function to be perfomed when button is clicked.
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label htmlFor="">Title</label>
