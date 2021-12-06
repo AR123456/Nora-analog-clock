@@ -2,23 +2,40 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-  const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState("");
+  // anohter way to do this is one state insead of 3 by passing in an object which is a group of the three states, managed as one thing
+  // this is less common "in the wild"
+  // const [enteredTitle, setEnteredTitle] = useState("");
+  // const [enteredAmount, setEnteredAmount] = useState("");
+  // const [enteredDate, setEnteredDate] = useState("");
+  //when doing it this way updates to state are done to all 3 vs one independently of the others
+  const [userInput, setUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
   const titleChangeHandler = (event) => {
-    // console.log(event.target.value);
-    // store this so it can be used later- useState hook
-    setEnteredTitle(event.target.value);
+    // when passing in a state object if only updating one piece of state still need to pass in the other things in state so that they are not lost.  Do this using the spread operator
+    // setEnteredTitle(event.target.value);
+    setUserInput({
+      ...userInput,
+      enteredTitle: event.target.value,
+    });
   };
   const amountChangeHandler = (event) => {
-    // console.log(event.target.value);
-    // store this so it can be used later- useState hook
-    setEnteredAmount(event.target.value);
+    // when passing in a state object if only updating one piece of state still need to pass in the other things in state so that they are not lost.  Do this using the spread operator
+    // setEnteredAmount(event.target.value);
+    setUserInput({
+      ...userInput,
+      enteredAmount: event.target.value,
+    });
   };
   const dateChangeHandler = (event) => {
-    // console.log(event.target.value);
-    // store this so it can be used later- useState hook
-    setEnteredDate(event.target.value);
+    // when passing in a state object if only updating one piece of state still need to pass in the other things in state so that they are not lost.  Do this using the spread operator
+    // setEnteredDate(event.target.value);
+    setUserInput({
+      ...userInput,
+      enteredDate: event.target.value,
+    });
   };
   return (
     <form>
