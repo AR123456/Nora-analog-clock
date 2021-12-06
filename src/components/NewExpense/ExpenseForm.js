@@ -16,25 +16,40 @@ const ExpenseForm = () => {
   const titleChangeHandler = (event) => {
     // when passing in a state object if only updating one piece of state still need to pass in the other things in state so that they are not lost.  Do this using the spread operator
     // setEnteredTitle(event.target.value);
-    setUserInput({
-      ...userInput,
-      enteredTitle: event.target.value,
+    // setUserInput({
+    //   ...userInput,
+    //   enteredTitle: event.target.value,
+    // });
+    // the better way to update state when dealing with an object like this is to pass a function into that function like this anonnomus arrow function it will recive the previous state snapshot and return the new updated state.
+    // react schedules updates to if you are scheduleing a bunch of updates at the same time could be depending on an outdated state snapsot if you do not use the approach below
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTitle: event.target.value };
     });
   };
   const amountChangeHandler = (event) => {
     // when passing in a state object if only updating one piece of state still need to pass in the other things in state so that they are not lost.  Do this using the spread operator
     // setEnteredAmount(event.target.value);
-    setUserInput({
-      ...userInput,
-      enteredAmount: event.target.value,
+    // setUserInput({
+    //   ...userInput,
+    //   enteredAmount: event.target.value,
+    // });
+    // the better way to update state when dealing with an object like this is to pass a function into that function like this anonnomus arrow function it will recive the previous state snapshot and return the new updated state.
+    // react schedules updates to if you are scheduleing a bunch of updates at the same time could be depending on an outdated state snapsot if you do not use the approach below
+    setUserInput((prevState) => {
+      return { ...prevState, enteredAmount: event.target.value };
     });
   };
   const dateChangeHandler = (event) => {
     // when passing in a state object if only updating one piece of state still need to pass in the other things in state so that they are not lost.  Do this using the spread operator
     // setEnteredDate(event.target.value);
-    setUserInput({
-      ...userInput,
-      enteredDate: event.target.value,
+    // setUserInput({
+    //   ...userInput,
+    //   enteredDate: event.target.value,
+    // });
+    // the better way to update state when dealing with an object like this is to pass a function into that function like this anonnomus arrow function it will recive the previous state snapshot and return the new updated state.
+    // react schedules updates to if you are scheduleing a bunch of updates at the same time could be depending on an outdated state snapsot if you do not use the approach below
+    setUserInput((prevState) => {
+      return { ...prevState, enteredDate: event.target.value };
     });
   };
   return (
