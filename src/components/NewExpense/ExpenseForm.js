@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
-
-const ExpenseForm = () => {
+// pass in props so we can use the pointer function we created in NewExpesne.js
+const ExpenseForm = (props) => {
   // state  allows for 2 way binding, listenting and can pass a new value back
   // use the value attribute on the form input div
   const [enteredTitle, setEnteredTitle] = useState("");
@@ -17,6 +17,7 @@ const ExpenseForm = () => {
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
   };
+  // here in the submitHandler execute to pointer function we passed in as a prop from NewExpense.js
   const submitHandler = (event) => {
     // what should happen when the user clicks submt on the form
     // When submit is clicked the browser also reloads the page by default.  We want to do this ourselfs with JS. So first thing is to prevent the default form submision
@@ -26,7 +27,12 @@ const ExpenseForm = () => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    console.log(expenseData);
+    // executing the pointer function from Expenseform.js
+    // the value we are getting from the onSaveExpeseData is this function
+    // IE we are executing a function from a diffrent component inside this one
+    // pass in expenseData
+    props.onSaveExpenseData(expenseData);
+    // console.log(expenseData);
     // clear out the form // put in the state we started with
     setEnteredTitle("");
     setEnteredAmount("");

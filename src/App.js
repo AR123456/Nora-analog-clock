@@ -1,5 +1,6 @@
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
+
 const App = () => {
   const expenses = [
     {
@@ -22,9 +23,16 @@ const App = () => {
       date: new Date(2021, 5, 12),
     },
   ];
+  // defining function here before returning JSX code
+  const addExpenseHandler = (expense) => {
+    console.log("in App.js");
+    console.log(expense);
+  };
   return (
     <div>
-      <NewExpense></NewExpense>
+      {/* passing addExpenseHandler to the onAddExpense prop 
+      then go to newExpense.js and pass in props to new expense and call the pointer function */}
+      <NewExpense onAddExpense={addExpenseHandler}></NewExpense>
       <Expenses items={expenses}></Expenses>
     </div>
   );
