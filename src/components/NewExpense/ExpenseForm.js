@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
+  // state  allows for 2 way binding, listenting and can pass a new value back
+  // use the value attribute on the form input div
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -25,6 +27,10 @@ const ExpenseForm = () => {
       date: new Date(enteredDate),
     };
     console.log(expenseData);
+    // clear out the form // put in the state we started with
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
   return (
     // listening for on form submit to listen for submit button click. Pass function to be perfomed when button is clicked.
@@ -32,12 +38,19 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label htmlFor="">Title</label>
-          <input type="text" onChange={titleChangeHandler} name="" id="" />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+            name=""
+            id=""
+          />
         </div>
         <div className="new-expense__control">
           <label htmlFor="">Amount</label>
           <input
             type="number"
+            value={enteredAmount}
             onChange={amountChangeHandler}
             min="0.01"
             step="0.01"
@@ -49,6 +62,7 @@ const ExpenseForm = () => {
           <label htmlFor="">Date</label>
           <input
             type="date"
+            value={enteredDate}
             onChange={dateChangeHandler}
             min="2019-01-01"
             max="2022-12-21"
