@@ -22,6 +22,8 @@ const Expenses = (props) => {
 
         {props.items.map((expense) => (
           <ExpenseItem
+            // adding key so that react can keep track, needs to be unique id
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
