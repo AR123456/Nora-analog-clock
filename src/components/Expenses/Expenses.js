@@ -11,7 +11,11 @@ const Expenses = (props) => {
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
-
+  // create a new const using the avalbible props with the filter method on it
+  // filter takes a function and if true returns new array
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
   return (
     <div>
       <Card className="expenses">
@@ -20,7 +24,9 @@ const Expenses = (props) => {
           onChangeFilter={filterChangeHandler}
         />
 
-        {props.items.map((expense) => (
+        {/* {props.items.map((expense) => ( */}
+        {/* now use filtetredExpenses array to map */}
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
             // adding key so that react can keep track, needs to be unique id
             key={expense.id}
