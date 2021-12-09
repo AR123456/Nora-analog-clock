@@ -16,6 +16,18 @@ const Expenses = (props) => {
   const filteredExpenses = props.items.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
+  // doing the check for content this way helps keep the code in the JSX return below more clean
+  let expensesContent = <p>No Expenses found.</p>;
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+  }
   return (
     <div>
       <Card className="expenses">
@@ -23,18 +35,20 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-
-        {/* {props.items.map((expense) => ( */}
-        {/* now use filtetredExpenses array to map */}
-        {filteredExpenses.map((expense) => (
-          <ExpenseItem
-            // adding key so that react can keep track, needs to be unique id
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        {/* using turnary expresion to check if no data and if so give a message  */}
+        {/* {filteredExpenses.length === 0 ? (
+          <p>No expense found.</p>
+        ) : (
+          filteredExpenses.map((expense) => (
+            <ExpenseItem
+              key={expense.id}
+              title={expense.title}
+              amount={expense.amount}
+              date={expense.date}
+            />
+          ))
+        )} */}
+        {expensesContent}
       </Card>
     </div>
   );
