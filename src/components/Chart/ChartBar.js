@@ -1,9 +1,22 @@
 import React from "react";
+import "./ChartBar.css";
 
-const ChartBar = () => {
+const ChartBar = (props) => {
+  // calculate the height of the bar
+  let barFillHeigth = "%0";
+  if (props.max > 0) {
+    barFillHeigth = Math.round((props.value / props.maxValue) * 100) + "%";
+  }
+
   return (
-    <div>
-      <div>Chart Bars go here</div>
+    <div className="chart-bar">
+      <div className="chart-bar__inner">
+        <div
+          className="chart-bar__fill"
+          style={{ height: barFillHeigth }}
+        ></div>
+      </div>
+      <div className="chart-bar__label">{props.label}</div>
     </div>
   );
 };
