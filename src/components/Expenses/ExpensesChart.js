@@ -1,5 +1,5 @@
 import React from "react";
-import Chart from "../Chart/Chart.css";
+import Chart from "../Chart/Chart";
 
 const ExpensesChart = (props) => {
   const chartDataPoints = [
